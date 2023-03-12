@@ -2,16 +2,15 @@ package ru.scooter.logic;
 
 import io.restassured.RestAssured;
 import io.restassured.response.ValidatableResponse;
-import org.apache.http.HttpStatus;
 import ru.scooter.base.Spec;
-import ru.scooter.pojo.CreateCourierPojo;
-import ru.scooter.pojo.LoginCourierPojo;
+import ru.scooter.pojo.CreateCourierPojoRequest;
+import ru.scooter.pojo.LoginCourierPojoRequest;
 import ru.scooter.utils.ConfigProperties;
 
 public class CourierLogicMethods {
 
-    public ValidatableResponse createrCourier(CreateCourierPojo courierData) {
-        Spec.instalSpec(Spec.reqSpec(), Spec.respSpec(HttpStatus.SC_CREATED));
+    public ValidatableResponse createrCourier(CreateCourierPojoRequest courierData, int statusCode) {
+        Spec.instalSpec(Spec.reqSpec(), Spec.respSpec(statusCode));
         return RestAssured
                 .given()
                 .body(courierData)
@@ -20,8 +19,8 @@ public class CourierLogicMethods {
                 .then();
     }
 
-    public ValidatableResponse loginCourier(LoginCourierPojo loginCourierData) {
-        Spec.instalSpec(Spec.reqSpec(), Spec.respSpec(HttpStatus.SC_OK));
+    public ValidatableResponse loginCourier(LoginCourierPojoRequest loginCourierData, int statusCode) {
+        Spec.instalSpec(Spec.reqSpec(), Spec.respSpec(statusCode));
         return RestAssured
                 .given()
                 .body(loginCourierData)
@@ -30,10 +29,10 @@ public class CourierLogicMethods {
                 .then();
     }
 
-    public ValidatableResponse deleteCourier(int id) {
-        Spec.instalSpec(Spec.reqSpec(), Spec.respSpec(HttpStatus.SC_OK));
+    public ValidatableResponse deleteCourier(int id, int statusCode) {
+        Spec.instalSpec(Spec.reqSpec(), Spec.respSpec(statusCode));
         return RestAssured
-                .given().log().all()
+                .given()
                 .when()
                 .delete(ConfigProperties.getProperty("courierUri") + id)
                 .then();

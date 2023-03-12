@@ -1,17 +1,17 @@
 package ru.scooter.pojo;
 
-public class LoginCourierPojo {
+public class LoginCourierPojoRequest {
 
     private String login;
     private String password;
 
-    public LoginCourierPojo(String login, String password) {
+    public LoginCourierPojoRequest(String login, String password) {
         this.login = login;
         this.password = password;
     }
 
-    public static LoginCourierPojo loginData(CreateCourierPojo courierData) {
-        return new LoginCourierPojo(courierData.getLogin(), courierData.getPassword());
+    public static LoginCourierPojoRequest loginData(CreateCourierPojoRequest courierData) {
+        return new LoginCourierPojoRequest(courierData.getLogin(), courierData.getPassword());
     }
 
     public String getLogin() {
