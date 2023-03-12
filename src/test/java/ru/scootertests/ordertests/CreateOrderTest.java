@@ -1,5 +1,6 @@
 package ru.scootertests.ordertests;
 
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
 import org.junit.After;
@@ -62,6 +63,7 @@ public class CreateOrderTest {
     }
 
     @Test
+    @DisplayName("create Order Test")
     public void createOrderTest() {
         CreateOrderPojoRequest orderData = new CreateOrderPojoRequest(firstName, lastName, address, metroStation, phone, rentTime,
                 deliveryDate, comment, color);

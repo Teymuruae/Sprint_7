@@ -1,5 +1,6 @@
 package ru.scootertests.couriertests;
 
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
 import org.junit.Assert;
@@ -42,6 +43,7 @@ public class CreateCourierWithourOneFieldTest {
     }
 
     @Test
+    @DisplayName("create Courier Without One Field Test")
     public void createCourierWithoutOneFieldTest() {
         CourierLogicMethods courierLogicMethods = new CourierLogicMethods();
         CreateCourierPojoRequest courierWithoutOneFieldData = new CreateCourierPojoRequest(login, password, firstName);

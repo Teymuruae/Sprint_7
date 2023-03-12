@@ -36,4 +36,13 @@ public class CreateCourierPojoRequest {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
+
+    @Override
+    public String toString() {
+        return "CreateCourierPojoRequest{" +
+                "login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                '}';
+    }
 }

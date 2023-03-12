@@ -1,5 +1,6 @@
 package ru.scootertests.couriertests;
 
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
 import org.junit.After;
@@ -42,6 +43,7 @@ public class CourierLoginWithWrongFieldTest {
     }
 
     @Test
+    @DisplayName("login Courier With Wrong Password Field Test")
     public void loginCourierWithWrongPasswordFieldTest() {
         createAndLogin();
 
@@ -55,6 +57,7 @@ public class CourierLoginWithWrongFieldTest {
     }
 
     @Test
+    @DisplayName("login Courier With Wrong Login Field Test")
     public void loginCourierWithWrongLoginFieldTest() {
         createAndLogin();
 

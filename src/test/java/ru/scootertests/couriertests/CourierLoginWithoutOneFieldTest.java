@@ -1,5 +1,6 @@
 package ru.scootertests.couriertests;
 
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
 import org.junit.Assert;
@@ -49,6 +50,7 @@ public class CourierLoginWithoutOneFieldTest {
 
     //проверка, что логин выдал ошибку из-за отсутствующего необходимого поля
     @Test
+    @DisplayName("courier Login Fail Test")
     public void courierLoginFailTest() {
         CreateCourierPojoRequest courierData = RandomCourierGenerator.createRandomCourier();
         courierLogicMethods.createrCourier(courierData, HttpStatus.SC_CREATED);

@@ -1,5 +1,6 @@
 package ru.scootertests.couriertests;
 
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
 import org.junit.After;
@@ -29,6 +30,7 @@ public class CreateCourierTest {
 
     //проверка создания курьера
     @Test
+    @DisplayName("create Courier Test")
     public void createCourierTest() {
         CreateCourierPojoRequest courierData = RandomCourierGenerator.createRandomCourier();
         ValidatableResponse newCourier = courierLogicMethods.createrCourier(courierData, HttpStatus.SC_CREATED);
@@ -44,6 +46,7 @@ public class CreateCourierTest {
 
     //проверка невозможности создания одинакового курьера
     @Test
+    @DisplayName("create Duplicate Courier Conflict Test")
     public void createDuplicateCourierConflictTest() {
         createCourierTest();
 
